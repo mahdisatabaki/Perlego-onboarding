@@ -30,7 +30,7 @@ export const TOTAL_READ_MINUTES = 78;
 export const ASSISTANT_ANSWER =
   "Encoding depth, not repetition time, is what predicts retention. Shallow processing of surface features produces traces that fade within hours, while semantic processing that links material to what you already know produces traces that survive for days. For an exam in two days, this means generating your own examples will outperform re-reading the chapter, even if re-reading feels more productive.";
 
-export const ASSISTANT_CITATION = "Cognition: Memory in Practice — Ch. 4, p. 112";
+export const ASSISTANT_CITATION = "Cognition: Memory in Practice · Ch. 4, p. 112";
 
 export const CHAPTERS: Chapter[] = [
   {

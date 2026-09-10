@@ -228,6 +228,20 @@ Change nothing else.
 
 ---
 
+## 🟡 T2-fix-2 — نوار زمان + بج «Free»
+
+> دو مشکل: (۱) نوار «Your exam is in 2 days» چیزی را ادعا می‌کند که هرگز از کاربر پرسیده نشده — کاربر فقط موضوعاتش را داده، نه تاریخ امتحانش. (۲) خط‌تیره‌ی em dash در «Free — no account» با کانوانسیون میان‌نقطه‌ی (`·`) بقیه‌ی محصول ناسازگار است و شبیه متن تولیدشده به‌نظر می‌رسد.
+
+```
+Fix two copy issues on MapPage, and change nothing else:
+
+1. The reassurance bar currently reads "Your exam is in 2 days. This map is 78 minutes of reading — you have time." Replace it with: "This map is 78 minutes of reading. Well within reach before your exam." Keep the same green background and styling — only the text changes. This removes a claim about "2 days" that the product was never actually told.
+
+2. The "Free — no account" badge on chapter 1 uses an em dash. Change it to "Free · no account" (middot with spaces), matching the separator already used elsewhere in this product (e.g. "eBook · PDF", "R. Halloway · 2021").
+```
+
+---
+
 ## 🟡 T5 — پاس اصلاح
 
 پرامپت از پیش نوشته ندارد. بعد از T4 اسکرین‌شات‌ها را بفرست تا همه‌ی اشکالات را در **یک** پرامپت جمع کنم.
