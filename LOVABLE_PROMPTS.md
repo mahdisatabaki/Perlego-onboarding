@@ -210,6 +210,24 @@ Change nothing else on the page.
 
 ---
 
+## 🟡 T4-fix — مودال Save دوباره ظاهر می‌شود
+
+> باگ: بعد از اینکه کاربر مودال Save را با «Not now» می‌بندد، شرط نمایشش (`highlightCount >= 3 && !isSignedUp`) هنوز true می‌ماند. پس با باز کردن هر فصل دیگری (مثلاً بعد از unlock کردن فصل ۲)، دوباره ظاهر می‌شود. باید فقط **یک‌بار در کل session** نشان داده شود، صرف‌نظر از اینکه کاربر signup کرده یا نه.
+
+```
+There's a bug in ReadPage: the "Keep these for tomorrow?" save modal reappears every time a new chapter page mounts, as long as highlightCount >= 3 and isSignedUp is false — even after the user already dismissed it once with "Not now".
+
+Fix: add a new field to SessionContext, `hasSeenSavePrompt: boolean` (starts false) with a `setHasSeenSavePrompt` setter, following the same pattern as the existing fields.
+
+Change the save modal's trigger condition to: `highlightCount >= 3 && !isSignedUp && !hasSeenSavePrompt`.
+
+When the user clicks either "Save my highlights" or "Not now", set `hasSeenSavePrompt` to true (in addition to whatever "Save my highlights" already does). This way the modal shows at most once per session, ever, regardless of how many chapters the user opens afterwards.
+
+Change nothing else.
+```
+
+---
+
 ## 🟡 T5 — پاس اصلاح
 
 پرامپت از پیش نوشته ندارد. بعد از T4 اسکرین‌شات‌ها را بفرست تا همه‌ی اشکالات را در **یک** پرامپت جمع کنم.
