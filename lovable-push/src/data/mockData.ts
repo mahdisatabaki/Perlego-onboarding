@@ -15,6 +15,7 @@ export type Chapter = {
   pageRef: string;
   spineColor: string;
   isFree: boolean;
+  matchedTopics: string[];
   body: string[];
 };
 
@@ -45,6 +46,7 @@ export const CHAPTERS: Chapter[] = [
     pageRef: "Ch. 4, p. 112",
     spineColor: "#714cf9",
     isFree: true,
+    matchedTopics: ["encoding", "Levels of processing"],
     excerpt:
       "Craik and Lockhart proposed that memory is not a set of separate stores but a by-product of the depth at which information is processed. Shallow, structural encoding produces fragile traces; semantic encoding, which connects material to existing knowledge, produces traces that survive far longer.",
     body: [
@@ -70,6 +72,7 @@ export const CHAPTERS: Chapter[] = [
     pageRef: "Ch. 2, p. 41",
     spineColor: "#1ad3b0",
     isFree: false,
+    matchedTopics: ["Working memory"],
     excerpt:
       "Baddeley and Hitch replaced the unitary short-term store with a multi-component system: a phonological loop for verbal material, a visuospatial sketchpad for imagery, and a central executive that allocates attention between them. The episodic buffer was added later to explain how the components integrate.",
     body: [
@@ -90,6 +93,7 @@ export const CHAPTERS: Chapter[] = [
     pageRef: "Ch. 7, p. 198",
     spineColor: "#ff5400",
     isFree: false,
+    matchedTopics: ["the forgetting curve", "interference theory"],
     excerpt:
       "Ebbinghaus's retention curve shows the steepest loss occurring within the first hours after learning, then flattening. Modern accounts attribute most of this loss not to passive decay but to interference from competing material learned before and after the target.",
     body: [
@@ -110,6 +114,7 @@ export const CHAPTERS: Chapter[] = [
     pageRef: "Ch. 5, p. 88",
     spineColor: "#ed6fff",
     isFree: false,
+    matchedTopics: ["Retrieval cues", "context-dependent memory"],
     excerpt:
       "The encoding specificity principle holds that a cue aids retrieval to the degree that it was encoded alongside the target. This explains why recall is better in the environment where learning occurred, and why recognition can succeed where free recall fails.",
     body: [
@@ -130,6 +135,7 @@ export const CHAPTERS: Chapter[] = [
     pageRef: "Ch. 9, p. 241",
     spineColor: "#ffd400",
     isFree: false,
+    matchedTopics: ["consolidation", "long-term potentiation"],
     excerpt:
       "Consolidation describes the process by which a labile trace becomes durable. At the synaptic level this is associated with long-term potentiation; at the systems level, with a gradual transfer of dependence from the hippocampus to the neocortex, much of it occurring during sleep.",
     body: [
