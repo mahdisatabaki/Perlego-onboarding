@@ -259,6 +259,21 @@ The heading "Keep these for tomorrow?" and both buttons stay the same in either 
 
 ---
 
+## 🟡 T4-fix-3 — دکمه‌ی مودال Save هم باید conditional باشد
+
+> باقیمانده‌ی همون باگ: متن بدنه‌ی مودال درست شد، اما دکمه‌ی primary هنوز همیشه «Save my highlights» می‌گوید، حتی وقتی مودال از دکمه‌ی bookshelf باز شده و هیچ هایلایتی وجود ندارد.
+
+```
+On the save modal in ReadPage, the primary button label is hardcoded to "Save my highlights" in every case. Make it conditional, matching the body text logic already fixed:
+
+- If highlightCount >= 3, the button reads: "Save my highlights"
+- If highlightCount < 3 (opened via the bookshelf button), the button reads: "Save to bookshelf"
+
+Its behaviour (sets isSignedUp, closes the modal) stays the same either way. Change nothing else.
+```
+
+---
+
 ## 🟡 T5 — پاس اصلاح
 
 پرامپت از پیش نوشته ندارد. بعد از T4 اسکرین‌شات‌ها را بفرست تا همه‌ی اشکالات را در **یک** پرامپت جمع کنم.
