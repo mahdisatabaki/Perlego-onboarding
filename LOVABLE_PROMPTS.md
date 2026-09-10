@@ -242,6 +242,23 @@ Fix two copy issues on MapPage, and change nothing else:
 
 ---
 
+## 🟡 T4-fix-2 — متن مودال Save وقتی از bookshelf باز می‌شود دروغ می‌گوید
+
+> باگ: مودال «Keep these for tomorrow?» همیشه می‌گوید «You've highlighted 3 passages» — حتی وقتی کاربر هیچ هایلایتی نکرده و فقط روی «+ Add to bookshelf» کلیک کرده. متن باید به trigger واقعی بستگی داشته باشد.
+
+```
+Fix the save modal's body text on ReadPage: it currently always says "You've highlighted {highlightCount} passages. Create an account to keep them, and your revision map, for your exam." — even when the modal was opened by clicking SaveToBookshelfButton with fewer than 3 highlights, which makes the sentence false.
+
+Make the text conditional at render time:
+
+- If highlightCount >= 3, keep: "You've highlighted {highlightCount} passages. Create an account to keep them, and your revision map, for your exam."
+- If highlightCount < 3 (meaning the modal was opened by the bookshelf button, not by highlighting), show instead: "Create an account to keep this chapter on your bookshelf, and your revision map, for your exam."
+
+The heading "Keep these for tomorrow?" and both buttons stay the same in either case. Change nothing else.
+```
+
+---
+
 ## 🟡 T5 — پاس اصلاح
 
 پرامپت از پیش نوشته ندارد. بعد از T4 اسکرین‌شات‌ها را بفرست تا همه‌ی اشکالات را در **یک** پرامپت جمع کنم.
