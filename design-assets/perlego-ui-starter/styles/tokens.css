@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;0,900;1,600&display=swap');
+
+:root {
+  --primary-50: #e4e8fe;
+  --primary-100: #c6cdff;
+  --primary-200: #a5acff;
+  --primary-300: #7b81ff;
+  --primary-400: #5151ff;
+  --primary-500: #3327ec;
+  --primary-600: #2027c2;
+  --primary-700: #151da2;
+  --primary-800: #0c1688;
+  --primary-900: #070f6c;
+
+  --danger-50: #ffefef;
+  --danger-500: #c0271b;
+  --danger-700: #8a1a20;
+  --success-50: #eafbef;
+  --success-500: #007824;
+  --success-700: #23541c;
+  --warning-50: #fff8e0;
+  --warning-500: #ac641d;
+  --warning-700: #884813;
+  --complete-100: #f3ccf6;
+  --complete-500: #c200d4;
+  --complete-700: #a500b4;
+
+  --text-primary: #000000;
+  --text-secondary: #383838;
+  --text-tertiary: #666565;
+  --text-disabled: #989795;
+  --text-action: #3327ec;
+
+  --accent-yellow: #ffd400;
+  --accent-orange: #ff5400;
+  --accent-magenta: #ed6fff;
+  --accent-violet: #714cf9;
+  --accent-teal: #1ad3b0;
+  --accent-lime: #affc40;
+
+  --canvas-white: #ffffff;
+  --canvas-paper: #f9f8f6;
+  --canvas-sepia: #e9e7e3;
+  --canvas-peach: #f7dbc2;
+  --canvas-ink: #2c2c2c;
+
+  --grey-50: #f9f8f6;
+  --grey-100: #e9e7e3;
+  --grey-200: #cdccc8;
+  --grey-300: #b2b1ae;
+  --grey-400: #989795;
+  --grey-500: #777674;
+  --grey-600: #666565;
+  --grey-700: #4e4e4e;
+  --grey-800: #383838;
+  --grey-900: #2c2c2c;
+
+  --border-decorative: #e9e7e3;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-24: 96px;
+
+  --radius-xs: 4px;
+  --radius-s: 6px;
+  --radius-m: 8px;
+  --radius-l: 12px;
+  --radius-xl: 16px;
+  --radius-pill: 9999px;
+
+  --shadow-1: 0 1px 2px rgba(44, 44, 44, 0.06), 0 1px 1px rgba(144, 48, 7, 0.04);
+  --shadow-4: 0 4px 10px rgba(44, 44, 44, 0.08), 0 2px 4px rgba(144, 48, 7, 0.05);
+  --shadow-6: 0 8px 20px rgba(44, 44, 44, 0.10), 0 3px 8px rgba(144, 48, 7, 0.06);
+  --shadow-12: 0 16px 36px rgba(44, 44, 44, 0.13), 0 6px 14px rgba(144, 48, 7, 0.07);
+
+  --font-display: 'Geller Headline', 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-heading: 'Manrope', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+
+  --focus-ring: 0 0 0 4px var(--primary-100);
+  --motion-fast: 140ms cubic-bezier(.4, 0, .2, 1);
+  --reading-column-max: 640px;
+}

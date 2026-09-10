@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Perlego UI Starter Preview</title>
+  <link rel="stylesheet" href="styles/tokens.css" />
+  <link rel="stylesheet" href="styles/components.css" />
+  <style>
+    .preview-page { padding: 48px; background: var(--canvas-paper); min-height: 100vh; }
+    .preview-wrap { max-width: 1120px; margin: 0 auto; }
+    .preview-section { margin-bottom: 56px; }
+    .preview-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+    .preview-stack { display: grid; gap: 16px; }
+  </style>
+</head>
+<body>
+  <div class="preview-page">
+    <div class="preview-wrap">
+      <section class="preview-section">
+        <h1 class="pg-display" style="font-size:48px; margin-bottom:8px;">Perlego UI Starter</h1>
+        <p class="pg-secondary" style="font-size:18px; max-width:700px;">Reusable visual building blocks for the Customer Onboarding Hackathon. This is a component reference, not an onboarding solution.</p>
+      </section>
+
+      <section class="preview-section">
+        <h2 class="pg-heading" style="font-size:30px; margin-bottom:20px;">Actions</h2>
+        <div class="preview-grid">
+          <button class="pg-btn">Continue</button>
+          <button class="pg-btn pg-btn--outline">Continue with Google</button>
+          <button class="pg-btn pg-btn--ghost">Skip for now</button>
+          <button class="pg-btn pg-btn--dark">Start reading</button>
+        </div>
+      </section>
+
+      <section class="preview-section">
+        <h2 class="pg-heading" style="font-size:30px; margin-bottom:20px;">Forms</h2>
+        <div class="preview-grid">
+          <div class="pg-field">
+            <label class="pg-label" for="email">Email</label>
+            <input id="email" class="pg-input" placeholder="Enter your email" />
+          </div>
+          <div class="pg-field">
+            <label class="pg-label" for="search">Topic</label>
+            <div class="pg-search"><span>⌕</span><input id="search" placeholder="What do you want to learn?" /><button>Search</button></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="preview-section">
+        <h2 class="pg-heading" style="font-size:30px; margin-bottom:20px;">Book and collection patterns</h2>
+        <div class="preview-grid">
+          <article class="pg-book-card" style="width:180px;">
+            <div class="pg-cover"><div class="pg-cover-fallback">Measuring Social Change</div></div>
+            <div><div class="pg-book-title">Measuring Social Change</div><div class="pg-book-meta">Alnoor Ebrahim · 2023</div></div>
+            <span class="pg-badge pg-badge--action">Added</span>
+          </article>
+          <div class="pg-card pg-bookshelf-card pg-card--lift">
+            <h3 class="pg-heading" style="font-size:20px;">Thesis research</h3>
+            <div class="pg-bookshelf-grid">
+              <div class="pg-cover"><div class="pg-cover-fallback" style="font-size:11px;">Research methods</div></div>
+              <div class="pg-cover"><div class="pg-cover-fallback" style="font-size:11px;">Social impact</div></div>
+              <div class="pg-cover"><div class="pg-cover-fallback" style="font-size:11px;">Evaluation</div></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="preview-section">
+        <h2 class="pg-heading" style="font-size:30px; margin-bottom:20px;">Selection</h2>
+        <div class="preview-grid">
+          <div class="pg-card pg-pricing-card" data-selected="true"><span class="pg-badge pg-badge--action">Popular</span><div class="pg-pricing-title" style="margin-top:12px;">Monthly</div><div class="pg-pricing-price">£12</div><div class="pg-pricing-copy">Flexible access billed monthly.</div></div>
+          <div class="preview-stack">
+            <div class="pg-radio-row" data-selected="true"><span class="pg-radio-dot"></span><span>I'm a student</span></div>
+            <div class="pg-radio-row" data-selected="false"><span class="pg-radio-dot"></span><span>I'm an independent learner</span></div>
+            <div class="pg-check-row" data-selected="true"><span class="pg-check-box">✓</span><span>Save this preference</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="preview-section">
+        <h2 class="pg-heading" style="font-size:30px; margin-bottom:20px;">Onboarding shell</h2>
+        <div class="pg-card" style="overflow:hidden;">
+          <div class="pg-top-nav"><span class="pg-brand">Perlego</span></div>
+          <div class="pg-onboarding-shell" style="min-height:520px;">
+            <main class="pg-onboarding-main">
+              <div class="pg-onboarding-narrow">
+                <div class="pg-progress-head"><button class="pg-link">← Back</button><span class="pg-progress-label">20% · You're making progress</span></div>
+                <div class="pg-progress-track"><div class="pg-progress-fill" style="width:20%"></div></div>
+                <h2 class="pg-heading" style="font-size:30px; margin-bottom:8px;">Help us tailor your experience</h2>
+                <p class="pg-secondary">Use this shell as structure only. Your team decides what belongs in the journey.</p>
+              </div>
+            </main>
+            <aside class="pg-onboarding-aside">
+              <div class="pg-card" style="padding:20px; max-width:260px;">
+                <div class="pg-cover" style="width:150px; margin:0 auto 14px;"><div class="pg-cover-fallback">Art and Visual Perception</div></div>
+                <div class="pg-book-title">Art and Visual Perception</div>
+                <div class="pg-book-meta">Rudolf Arnheim · 2023</div>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</body>
+</html>
