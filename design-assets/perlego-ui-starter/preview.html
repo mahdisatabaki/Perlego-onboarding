@@ -11,91 +11,97 @@
     .preview-wrap { max-width: 1120px; margin: 0 auto; }
     .preview-section { margin-bottom: 56px; }
     .preview-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
-    .preview-stack { display: grid; gap: 16px; }
+    .preview-note { padding: 16px 18px; background: var(--primary-50); border-radius: var(--radius-m); color: var(--primary-800); margin: 16px 0 28px; }
   </style>
 </head>
 <body>
   <div class="preview-page">
     <div class="preview-wrap">
       <section class="preview-section">
-        <h1 class="pg-display" style="font-size:48px; margin-bottom:8px;">Perlego UI Starter</h1>
-        <p class="pg-secondary" style="font-size:18px; max-width:700px;">Reusable visual building blocks for the Customer Onboarding Hackathon. This is a component reference, not an onboarding solution.</p>
+        <h1 class="pg-display" style="font-size:48px; margin-bottom:8px;">Perlego UI Starter v2</h1>
+        <p class="pg-secondary" style="font-size:18px; max-width:760px;">Reusable visual building blocks for the Customer Onboarding Hackathon. Core primitives are paired with more Perlego-specific product patterns from the interactive demo.</p>
+        <div class="preview-note"><strong>Reference, not a template:</strong> page shells and progress patterns are optional. Teams should change, remove or replace them when their ICP and activation strategy calls for something different.</div>
       </section>
 
       <section class="preview-section">
-        <h2 class="pg-heading" style="font-size:30px; margin-bottom:20px;">Actions</h2>
+        <h2 class="pg-heading" style="font-size:30px; margin-bottom:20px;">Core primitives</h2>
         <div class="preview-grid">
           <button class="pg-btn">Continue</button>
-          <button class="pg-btn pg-btn--outline">Continue with Google</button>
-          <button class="pg-btn pg-btn--ghost">Skip for now</button>
-          <button class="pg-btn pg-btn--dark">Start reading</button>
+          <button class="pg-btn pg-btn--outline">Secondary action</button>
+          <button class="pg-btn pg-btn--ghost">Text action</button>
+          <div class="pg-field"><label class="pg-label" for="email">Email</label><input id="email" class="pg-input" placeholder="Enter your email" /></div>
         </div>
       </section>
 
       <section class="preview-section">
-        <h2 class="pg-heading" style="font-size:30px; margin-bottom:20px;">Forms</h2>
-        <div class="preview-grid">
-          <div class="pg-field">
-            <label class="pg-label" for="email">Email</label>
-            <input id="email" class="pg-input" placeholder="Enter your email" />
-          </div>
-          <div class="pg-field">
-            <label class="pg-label" for="search">Topic</label>
-            <div class="pg-search"><span>⌕</span><input id="search" placeholder="What do you want to learn?" /><button>Search</button></div>
-          </div>
-        </div>
+        <h2 class="pg-heading" style="font-size:30px; margin-bottom:20px;">Perlego search pattern</h2>
+        <div class="pg-search" style="max-width:720px;"><span>⌕</span><input placeholder="Search books, topics or authors" /><button>Search</button></div>
       </section>
 
       <section class="preview-section">
-        <h2 class="pg-heading" style="font-size:30px; margin-bottom:20px;">Book and collection patterns</h2>
-        <div class="preview-grid">
-          <article class="pg-book-card" style="width:180px;">
-            <div class="pg-cover"><div class="pg-cover-fallback">Measuring Social Change</div></div>
-            <div><div class="pg-book-title">Measuring Social Change</div><div class="pg-book-meta">Alnoor Ebrahim · 2023</div></div>
-            <span class="pg-badge pg-badge--action">Added</span>
-          </article>
-          <div class="pg-card pg-bookshelf-card pg-card--lift">
-            <h3 class="pg-heading" style="font-size:20px;">Thesis research</h3>
-            <div class="pg-bookshelf-grid">
-              <div class="pg-cover"><div class="pg-cover-fallback" style="font-size:11px;">Research methods</div></div>
-              <div class="pg-cover"><div class="pg-cover-fallback" style="font-size:11px;">Social impact</div></div>
-              <div class="pg-cover"><div class="pg-cover-fallback" style="font-size:11px;">Evaluation</div></div>
+        <h2 class="pg-heading" style="font-size:30px; margin-bottom:20px;">Perlego book card</h2>
+        <article class="pg-book-card" style="width:210px;">
+          <div class="pg-cover" style="width:210px;">
+            <div class="pg-cover-demo">
+              <div class="pg-cover-demo-title">MEASURING<br>SOCIAL<br>CHANGE</div>
+              <div class="pg-cover-demo-grid"><span></span><span></span><span></span><span></span></div>
+              <div class="pg-cover-demo-author">ALNOOR EBRAHIM</div>
             </div>
           </div>
-        </div>
+          <div>
+            <span class="pg-badge">eBook · PDF</span>
+            <div class="pg-book-title" style="font-size:20px; margin-top:8px;">Measuring Social Change</div>
+            <div class="pg-book-subtitle">Performance and Accountability in a Complex World</div>
+            <div class="pg-book-meta">Alnoor Ebrahim · 2023</div>
+          </div>
+          <div class="pg-book-actions"><button class="pg-save-btn" data-saved="true">✓ Added</button></div>
+        </article>
       </section>
 
       <section class="preview-section">
-        <h2 class="pg-heading" style="font-size:30px; margin-bottom:20px;">Selection</h2>
+        <h2 class="pg-heading" style="font-size:30px; margin-bottom:20px;">Book result / discovery pattern</h2>
+        <article class="pg-card pg-book-result">
+          <div class="pg-cover" style="width:96px;">
+            <div class="pg-cover-demo">
+              <div class="pg-cover-demo-title" style="font-size:11px;">MEASURING<br>SOCIAL<br>CHANGE</div>
+              <div class="pg-cover-demo-grid"><span></span><span></span><span></span><span></span></div>
+              <div class="pg-cover-demo-author" style="font-size:7px;">ALNOOR EBRAHIM</div>
+            </div>
+          </div>
+          <div>
+            <span class="pg-badge">eBook · PDF</span>
+            <div class="pg-book-result-title">Measuring Social Change</div>
+            <div class="pg-book-subtitle">Performance and Accountability in a Complex World</div>
+            <div class="pg-book-meta" style="margin-top:6px;">Alnoor Ebrahim · 2023</div>
+          </div>
+          <div class="pg-book-result-actions"><button class="pg-btn pg-btn--auto">View book</button><button class="pg-save-btn">+ Add to bookshelf</button></div>
+        </article>
+      </section>
+
+      <section class="preview-section">
+        <h2 class="pg-heading" style="font-size:30px; margin-bottom:20px;">Plan card</h2>
         <div class="preview-grid">
           <div class="pg-card pg-pricing-card" data-selected="true"><span class="pg-badge pg-badge--action">Popular</span><div class="pg-pricing-title" style="margin-top:12px;">Monthly</div><div class="pg-pricing-price">£12</div><div class="pg-pricing-copy">Flexible access billed monthly.</div></div>
-          <div class="preview-stack">
-            <div class="pg-radio-row" data-selected="true"><span class="pg-radio-dot"></span><span>I'm a student</span></div>
-            <div class="pg-radio-row" data-selected="false"><span class="pg-radio-dot"></span><span>I'm an independent learner</span></div>
-            <div class="pg-check-row" data-selected="true"><span class="pg-check-box">✓</span><span>Save this preference</span></div>
-          </div>
+          <div class="pg-card pg-pricing-card"><div class="pg-pricing-title">Yearly</div><div class="pg-pricing-price">£96</div><div class="pg-pricing-copy">Longer-term access with a lower monthly equivalent.</div></div>
         </div>
       </section>
 
       <section class="preview-section">
-        <h2 class="pg-heading" style="font-size:30px; margin-bottom:20px;">Onboarding shell</h2>
+        <h2 class="pg-heading" style="font-size:30px; margin-bottom:20px;">Optional onboarding reference pattern</h2>
         <div class="pg-card" style="overflow:hidden;">
           <div class="pg-top-nav"><span class="pg-brand">Perlego</span></div>
-          <div class="pg-onboarding-shell" style="min-height:520px;">
-            <main class="pg-onboarding-main">
-              <div class="pg-onboarding-narrow">
-                <div class="pg-progress-head"><button class="pg-link">← Back</button><span class="pg-progress-label">20% · You're making progress</span></div>
-                <div class="pg-progress-track"><div class="pg-progress-fill" style="width:20%"></div></div>
-                <h2 class="pg-heading" style="font-size:30px; margin-bottom:8px;">Help us tailor your experience</h2>
-                <p class="pg-secondary">Use this shell as structure only. Your team decides what belongs in the journey.</p>
-              </div>
-            </main>
+          <div class="pg-onboarding-shell" style="min-height:480px;">
+            <main class="pg-onboarding-main"><div class="pg-onboarding-narrow">
+              <div class="pg-progress-head"><button class="pg-link">← Back</button><span class="pg-progress-label">20% · You're making progress</span></div>
+              <div class="pg-progress-track"><div class="pg-progress-fill" style="width:20%"></div></div>
+              <h2 class="pg-heading" style="font-size:30px; margin-bottom:8px;">Example page shell</h2>
+              <p class="pg-secondary">This composition is available as a reference pattern only. It does not define the flow, number of steps or required layout.</p>
+            </div></main>
             <aside class="pg-onboarding-aside">
-              <div class="pg-card" style="padding:20px; max-width:260px;">
-                <div class="pg-cover" style="width:150px; margin:0 auto 14px;"><div class="pg-cover-fallback">Art and Visual Perception</div></div>
-                <div class="pg-book-title">Art and Visual Perception</div>
-                <div class="pg-book-meta">Rudolf Arnheim · 2023</div>
-              </div>
+              <article class="pg-book-card" style="width:160px; margin:0 auto;">
+                <div class="pg-cover" style="width:160px;"><div class="pg-cover-demo"><div class="pg-cover-demo-title" style="font-size:15px;">MEASURING<br>SOCIAL<br>CHANGE</div><div class="pg-cover-demo-grid"><span></span><span></span><span></span><span></span></div><div class="pg-cover-demo-author">ALNOOR EBRAHIM</div></div></div>
+                <div><div class="pg-book-title">Measuring Social Change</div><div class="pg-book-meta">Alnoor Ebrahim · 2023</div></div>
+              </article>
             </aside>
           </div>
         </div>

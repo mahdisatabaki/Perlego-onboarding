@@ -1,227 +1,128 @@
-# Lovable Prompts — آماده‌ی کپی/پیست
+# Lovable Prompts — نسخه‌ی GitHub-optimised
 
+> **این نسخه جایگزین نسخه‌ی قبلی است.** چون GitHub وصل شده، فایل‌های design system و داده از طریق push وارد می‌شوند (۰ credit) و پرامپت‌ها کوتاه‌تر شده‌اند.
+>
 > هر بلوک زیر **یک پیام در Lovable** است = **۱ credit**.
-> ترتیب را رعایت کن. بعد از هر تسک، **اسکرین‌شات را برای من بفرست** تا پرامپت بعدی یا اصلاحی را دقیق بنویسم.
-> ⚠️ بین تسک‌ها هیچ پیام اضافه‌ای به Lovable نفرست («مرسی»، «خوب شد»، «ادامه بده» → هرکدام یک credit است).
+> بعد از هر تسک **اسکرین‌شات را برای من بفرست**.
+> ⚠️ بین تسک‌ها هیچ پیام اضافه‌ای نفرست («مرسی»، «ادامه بده» → هرکدام یک credit است).
+
+**بودجه: ۵ credit هسته + ۲ تا ۳ اصلاح.**
 
 ---
 
-## 🔴 T0 — پایه‌ی پروژه (پرامپت ساخت پروژه)
+## ترتیب اجرا
 
-**این پرامپت پروژه را می‌سازد. کل بلوک زیر را یکجا کپی کن.**
+| مرحله | کار | credit |
+|---|---|---|
+| ۱ | پرامپت **T0** در Lovable | ۱ |
+| ۲ | **Connect to GitHub** در Lovable | ۰ |
+| ۳ | **push فایل‌ها** طبق `lovable-push/README.md` | ۰ |
+| ۴ | پرامپت **T1** | ۱ |
+| ۵ | پرامپت **T2** | ۱ |
+| ۶ | پرامپت **T3** | ۱ |
+| ۷ | پرامپت **T4** | ۱ |
+| ۸ | پاس اصلاح (یکجا) | ۱–۳ |
+
+---
+
+## 🔴 T0 — ساخت پروژه
 
 ```
-Build a desktop-first React web app called "Perlego Revision". No mobile layout needed.
+Build a desktop-first React web app called "Perlego Revision". No mobile layout is needed.
 
-This is a clickable prototype. There is NO backend. Do not add Supabase, authentication, payments, or any API calls. All data is static and local.
+This is a clickable prototype with NO backend. Do not add Supabase, authentication, payments, analytics, or any API calls. All data will be static and local.
 
-## 1. Design system — create `src/styles/tokens.css` with EXACTLY this content and import it globally:
-
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;0,900;1,600&display=swap');
-
-:root {
-  --primary-50: #e4e8fe;
-  --primary-100: #c6cdff;
-  --primary-500: #3327ec;
-  --primary-600: #2027c2;
-  --primary-700: #151da2;
-  --success-50: #eafbef;
-  --success-500: #007824;
-  --warning-50: #fff8e0;
-  --warning-500: #ac641d;
-  --text-primary: #000000;
-  --text-secondary: #383838;
-  --text-tertiary: #666565;
-  --text-action: #3327ec;
-  --accent-yellow: #ffd400;
-  --accent-orange: #ff5400;
-  --accent-magenta: #ed6fff;
-  --accent-violet: #714cf9;
-  --accent-teal: #1ad3b0;
-  --canvas-white: #ffffff;
-  --canvas-paper: #f9f8f6;
-  --canvas-sepia: #e9e7e3;
-  --canvas-ink: #2c2c2c;
-  --grey-50: #f9f8f6;
-  --grey-100: #e9e7e3;
-  --grey-200: #cdccc8;
-  --grey-400: #989795;
-  --grey-600: #666565;
-  --grey-700: #4e4e4e;
-  --grey-900: #2c2c2c;
-  --border-decorative: #e9e7e3;
-  --space-1: 4px;  --space-2: 8px;  --space-3: 12px; --space-4: 16px;
-  --space-6: 24px; --space-8: 32px; --space-12: 48px; --space-16: 64px;
-  --radius-xs: 4px; --radius-s: 6px; --radius-m: 8px; --radius-l: 12px; --radius-xl: 16px; --radius-pill: 9999px;
-  --shadow-1: 0 1px 2px rgba(44,44,44,0.06), 0 1px 1px rgba(144,48,7,0.04);
-  --shadow-4: 0 4px 10px rgba(44,44,44,0.08), 0 2px 4px rgba(144,48,7,0.05);
-  --shadow-6: 0 8px 20px rgba(44,44,44,0.10), 0 3px 8px rgba(144,48,7,0.06);
-  --font-display: 'Playfair Display', Georgia, serif;
-  --font-heading: 'Manrope', system-ui, sans-serif;
-  --font-body: 'Inter', system-ui, sans-serif;
-  --focus-ring: 0 0 0 4px var(--primary-100);
-  --motion-fast: 140ms cubic-bezier(.4,0,.2,1);
-}
-
-## 2. Styling rules — apply these EVERYWHERE, without exception:
-- Only `--primary-500` for primary buttons, links and selected states. Accent colours are ONLY for book spine graphics and topic tags. NEVER use an accent colour on a button.
-- Greys are warm (the grey tokens above). Never use blue-grey or Tailwind's default grey.
-- Page background is `--canvas-white` or `--canvas-paper`. No gradients anywhere.
-- Book titles and hero headings use `--font-display`. Section headings and UI labels use `--font-heading`. All body and reading text uses `--font-body`.
-- Radii are small: buttons 6px, cards 8px, large panels 12px, pills fully round.
-- Shadows are the warm two-layer tokens above. Never a plain black shadow.
-- Every interactive element gets `box-shadow: var(--focus-ring)` on `:focus-visible`.
-- Transitions are 140ms. No bounce, no spring, no scale-up animations.
-- Sentence case everywhere, never Title Case. British English spelling ("personalise", "organise").
-- No emoji anywhere in the UI.
-
-## 3. Routes — create these three routes now, even if pages are placeholders:
+Create exactly three routes, each as its own page component:
 - `/` → IntentPage
 - `/map` → MapPage
 - `/read/:id` → ReadPage
 
-## 4. Create `src/data/mockData.ts` with this exact structure and content:
+Leave all three pages nearly empty for now — just the page name as a placeholder heading. I will fill them in with later instructions.
 
-export type Chapter = {
-  id: string; order: number; bookTitle: string; bookAuthor: string;
-  chapterTitle: string; readMinutes: number; excerpt: string;
-  pageRef: string; spineColor: string; isFree: boolean; body: string[];
-};
+Set up a React context called `SessionProvider` that wraps the app and holds this state, so all three pages can read and write it:
+- `topics: string` — the raw text the user pastes on the intent page
+- `highlightCount: number` — starts at 0
+- `isSignedUp: boolean` — starts false
+- `isSubscribed: boolean` — starts false
 
-export const TOPIC_PRESETS: string[] = [
-  "Working memory, encoding, the forgetting curve",
-  "Retrieval cues, context-dependent memory, consolidation",
-  "Levels of processing, interference theory, long-term potentiation",
-];
+I am about to push a design system and a data file into this project via GitHub. Do NOT create your own design tokens, colour palette, theme file, UI component library, or mock data — I am providing all of it. Do not install a component library. Do not add Tailwind config colours.
 
-export const CHAPTERS: Chapter[] = [
-  {
-    id: "c1", order: 1,
-    bookTitle: "Cognition: Memory in Practice", bookAuthor: "R. Halloway",
-    chapterTitle: "Encoding and the levels of processing",
-    readMinutes: 12, pageRef: "Ch. 4, p. 112", spineColor: "#714cf9", isFree: true,
-    excerpt: "Craik and Lockhart proposed that memory is not a set of separate stores but a by-product of the depth at which information is processed. Shallow, structural encoding produces fragile traces; semantic encoding, which connects material to existing knowledge, produces traces that survive far longer.",
-    body: [
-      "The levels-of-processing framework began as a challenge to the modal model of memory. Rather than treating short-term and long-term memory as distinct containers through which information passes, Craik and Lockhart argued that retention is a direct consequence of how deeply an item is analysed at the moment of encoding.",
-      "Processing was described along a continuum. At the shallow end, the learner attends only to surface features: whether a word is printed in capitals, how many letters it contains, whether it rhymes with another word. At the deep end, the learner analyses meaning, relating the item to what is already known.",
-      "The empirical support came from incidental learning experiments. Participants were given an orienting task that forced a particular level of analysis, and were not told a memory test would follow. Those asked semantic questions consistently recalled far more than those asked structural or phonemic questions, despite spending no longer on the task.",
-      "This finding matters because it separates retention from rehearsal time. Simply repeating an item, what Craik and Lockhart called maintenance rehearsal, keeps it available but does not reliably deepen the trace. Elaborative rehearsal, which builds connections to existing knowledge, does.",
-      "The framework was not without criticism. The principal objection is circularity: depth is inferred from how well material is remembered, and retention is then explained by depth. Attempts to define depth independently, through processing time or physiological measures, have been only partially successful.",
-      "A more productive refinement came from the concept of transfer-appropriate processing. Retention depends not on depth alone but on the match between the processing performed at encoding and the processing demanded at retrieval. A rhyme-based encoding task can outperform a semantic one, provided the test itself is rhyme-based.",
-      "For revision, the practical implication is direct. Reading material repeatedly is maintenance rehearsal and produces weaker retention than the effort suggests. Generating your own examples, explaining a concept in your own words, or connecting it to material you already know are all forms of elaborative encoding, and they produce traces that survive to the examination.",
-    ],
-  },
-  {
-    id: "c2", order: 2,
-    bookTitle: "The Working Mind", bookAuthor: "S. Adeyemi",
-    chapterTitle: "Working memory and the central executive",
-    readMinutes: 18, pageRef: "Ch. 2, p. 41", spineColor: "#1ad3b0", isFree: false,
-    excerpt: "Baddeley and Hitch replaced the unitary short-term store with a multi-component system: a phonological loop for verbal material, a visuospatial sketchpad for imagery, and a central executive that allocates attention between them. The episodic buffer was added later to explain how the components integrate.",
-    body: [
-      "The working memory model arose from a simple observation: if short-term memory were a single store, then filling it with a concurrent task should abolish reasoning performance. It does not.",
-      "Each component has a measurable signature. The phonological loop shows the word-length effect and is disrupted by articulatory suppression; the sketchpad is disrupted by concurrent spatial tracking but not by irrelevant speech.",
-    ],
-  },
-  {
-    id: "c3", order: 3,
-    bookTitle: "Cognition: Memory in Practice", bookAuthor: "R. Halloway",
-    chapterTitle: "Forgetting: decay, interference and the retention curve",
-    readMinutes: 14, pageRef: "Ch. 7, p. 198", spineColor: "#ff5400", isFree: false,
-    excerpt: "Ebbinghaus's retention curve shows the steepest loss occurring within the first hours after learning, then flattening. Modern accounts attribute most of this loss not to passive decay but to interference from competing material learned before and after the target.",
-    body: [
-      "Ebbinghaus tested himself on nonsense syllables to remove the influence of prior meaning, and plotted retention against elapsed time. The resulting curve is negatively accelerated: rapid initial loss, then a long shallow tail.",
-      "Proactive interference describes earlier learning disrupting later material; retroactive interference describes the reverse. Both are reduced when the competing sets are made contextually distinct.",
-    ],
-  },
-  {
-    id: "c4", order: 4,
-    bookTitle: "Context and Recall", bookAuthor: "M. Lindqvist",
-    chapterTitle: "Retrieval cues and context-dependent memory",
-    readMinutes: 16, pageRef: "Ch. 5, p. 88", spineColor: "#ed6fff", isFree: false,
-    excerpt: "The encoding specificity principle holds that a cue aids retrieval to the degree that it was encoded alongside the target. This explains why recall is better in the environment where learning occurred, and why recognition can succeed where free recall fails.",
-    body: [
-      "Tulving and Thomson demonstrated that a cue present at encoding can outperform a strong semantic associate that was not, even when the associate is more obviously related to the target.",
-      "Godden and Baddeley's underwater study remains the clearest environmental demonstration: divers recalled more when tested in the same environment in which they had learned.",
-    ],
-  },
-  {
-    id: "c5", order: 5,
-    bookTitle: "The Working Mind", bookAuthor: "S. Adeyemi",
-    chapterTitle: "Consolidation and long-term potentiation",
-    readMinutes: 18, pageRef: "Ch. 9, p. 241", spineColor: "#ffd400", isFree: false,
-    excerpt: "Consolidation describes the process by which a labile trace becomes durable. At the synaptic level this is associated with long-term potentiation; at the systems level, with a gradual transfer of dependence from the hippocampus to the neocortex, much of it occurring during sleep.",
-    body: [
-      "Long-term potentiation is a persistent strengthening of synaptic transmission following high-frequency stimulation, and is widely treated as a cellular model of learning.",
-      "Systems consolidation operates over a far longer timescale, and retrograde amnesia gradients following hippocampal damage provide the principal evidence for it.",
-    ],
-  },
-];
-
-## 5. Shell
-Add a minimal top bar on every page: the wordmark "Perlego" on the left in `--font-display`, nothing else. No navigation links, no search box, no sign-up button, no login link.
-
-Do NOT build the page contents yet — just the routes, the design system, the data file and the shell.
+Keep the app shell minimal: no navigation bar, no footer, no sidebar for now.
 ```
+
+**بعد از این پرامپت:** Connect to GitHub → push فایل‌ها → بعد T1.
 
 ---
 
 ## 🔴 T1 — صفحه‌ی ورود
 
 ```
-Build the IntentPage at route `/`. Use only the design tokens already in the project.
+I have pushed these files into the project:
+- `src/styles/tokens.css` — CSS custom properties (colours, spacing, radii, shadows, fonts)
+- `src/styles/components.css` — the `pg-*` component classes
+- `src/components/PerlegoUI.tsx` — ready-made React components
+- `src/data/mockData.ts` — all demo content
 
-Layout: single centred column, max-width 720px, vertically centred with generous whitespace. Background `--canvas-paper`.
+Import both stylesheets globally in the app entry file. From now on, use ONLY these tokens, these `pg-*` classes and these components. Never introduce a new colour, font, radius or shadow value.
 
-Content, in this order:
-1. Heading in `--font-display`, around 44px: "What are you revising?"
-2. Sub-line in `--font-body`, 18px, `--text-tertiary`: "Paste your revision topics, your module name, or the essay question. We'll find the chapters that cover them."
-3. A large textarea, full width, min-height 140px, 8px radius, 1px `--border-decorative` border, 18px body text, placeholder: "e.g. working memory, encoding, the forgetting curve". On focus it gets the focus ring token.
-4. Below the textarea, a row labelled "Or start from one of these:" in 14px `--text-tertiary`, followed by three pill-shaped chips built from TOPIC_PRESETS in mockData. Clicking a chip fills the textarea with that preset text. Chips have a 1px `--border-decorative` border, white background, and darken their border on hover.
-5. A primary button, `--primary-500` background, white text, 6px radius, label: "Find my chapters". It is disabled while the textarea is empty. Clicking it stores the textarea content in state and navigates to `/map`.
+Add `<PerlegoHeader />` from PerlegoUI to the top of every page. Pass it no links.
 
-Store the submitted topics in a way `/map` can read them — a small React context or a URL query parameter is fine. No backend.
+Now build the IntentPage at `/`.
 
-Do NOT add: any mention of how many books are in the library, any sign-up or login control, any marketing copy about the product, any feature grid, any testimonials, any footer, any hero image.
+Layout: a single centred column, max-width 720px, vertically centred, generous whitespace, page background `var(--canvas-paper)`.
+
+Content in this order:
+1. A heading using the `pg-display` class, around 44px: "What are you revising?"
+2. A sub-line using the `pg-muted` class, 18px: "Paste your revision topics, your module name, or the essay question. We'll find the chapters that cover them."
+3. A textarea with the `pg-input` class, full width, min-height 140px, 18px text, placeholder: "e.g. working memory, encoding, the forgetting curve". Its value is bound to `topics` in SessionProvider.
+4. A row labelled "Or start from one of these:" using `pg-muted` at 14px, followed by the three strings from `TOPIC_PRESETS` in mockData, each rendered as `<Button variant="outline" autoWidth>`. Clicking one sets `topics` to that preset string.
+5. A primary `<Button large>` with the label "Find my chapters". It is disabled while `topics` is empty. Clicking it navigates to `/map`.
+
+Do NOT add: any figure for how many books are in the library, any sign-up or log-in control, any marketing copy about the product, any feature list, any testimonials, any footer, any hero image, any illustration.
 ```
 
 ---
 
-## 🔴 T2 — Revision Map + حالت تحلیل
+## 🔴 T2 — Revision Map
 
 ```
-Build the MapPage at route `/map`.
+Build the MapPage at `/map`, using the tokens, `pg-*` classes and PerlegoUI components already in the project.
 
-## Analysing state
-When the page first loads, show a centred analysing state for 2.2 seconds before revealing the map. It shows three short lines that replace each other roughly every 700ms, each fading in over 140ms:
+## 1. Analysing state
+On first load, show a centred analysing state for 2.2 seconds before revealing the map. Three short lines replace each other roughly every 700ms, each fading in over 140ms:
 "Reading your topics…" → "Searching 4 books…" → "Ordering by what to read first…"
-Keep it quiet: no spinner larger than 20px, no progress bar, no percentage.
+Keep it quiet: no spinner wider than 20px, no progress bar, no percentage.
 
-## Time reassurance bar
-Once the map is revealed, show a calm bar above the list, background `--success-50`, 8px radius, 16px padding, body text: "Your exam is in 2 days. This map is 78 minutes of reading — you have time."
-This is reassurance, NOT urgency. Do not add a countdown timer, do not use red or `--danger` colours, do not use words like "hurry", "only", or "left".
+## 2. Time reassurance bar
+Above the list, a bar with `var(--success-50)` background, 8px radius, 16px padding:
+"Your exam is in 2 days. This map is 78 minutes of reading — you have time."
+This is reassurance, NOT urgency. Do not add a countdown timer, do not use red or any danger colour, do not use the words "hurry", "only", "left" or "remaining".
 
-## Map header
-Heading in `--font-display`, 34px: "Your revision map"
-Sub-line, `--text-tertiary`: "5 chapters, ordered. Start at the top."
+## 3. Header
+A `pg-display` heading at 34px: "Your revision map"
+A `pg-muted` sub-line: "5 chapters, ordered. Start at the top."
 
-## Chapter cards
-Render CHAPTERS from mockData in `order`, as a vertical list of cards. Each card: white background, 8px radius, 1px `--border-decorative` border, `--shadow-1` at rest, `--shadow-6` on hover, 24px padding, 16px gap between cards.
+## 4. Chapter cards
+Render `CHAPTERS` from mockData in `order` as a vertical list, 16px apart.
 
-Each card contains, left to right:
-- A book spine graphic on the left: a 64px wide, 96px tall rounded rectangle filled with the chapter's `spineColor`, with the order number in white `--font-display` 28px centred on it.
-- The main column:
-  - Chapter title, `--font-heading` 20px, `--text-primary`
-  - Book title in `--font-display` italic 15px plus " · " plus author, in `--text-tertiary`
-  - A row of topic tags: split the user's submitted topics on commas, trim them, and render each as a small pill with `--primary-50` background and `--text-action` text. Show at most three per card. These are the matched topics.
-  - The `excerpt` text in a quoted block: 15px, `--text-secondary`, a 2px left border in the chapter's `spineColor`, 12px left padding. Below it, the `pageRef` in 12px `--text-tertiary`.
-- A right-hand column, 140px wide, right-aligned:
-  - Read time, `--font-heading` 15px: "12 min read"
-  - For the first chapter only, a badge with `--success-50` background and `--success-500` text: "Free — no account"
-  - A button. For chapter 1 it is a primary button labelled "Start reading" and navigates to `/read/c1`. For chapters 2 to 5 it is a secondary button (white background, 1px `--border-decorative` border, `--text-primary` text) labelled "Read chapter" that navigates to `/read/` plus that chapter's id.
+Build a `ChapterResult` component modelled on the existing `BookResult` component in PerlegoUI — reuse its anatomy and its classes (`pg-card pg-book-result`, `pg-cover`, `pg-book-result-title`, `pg-book-subtitle`, `pg-book-meta`, `pg-book-result-actions`) so it looks like it belongs to the same system. Do not import BookResult unchanged; it does not carry the fields below.
 
-If the user arrived with no topics stored, fall back to the first preset in TOPIC_PRESETS so the page never looks broken.
+Each ChapterResult contains:
+- Left: a `pg-cover` block 96px wide, filled with the chapter's `spineColor`, with the `order` number centred on it in white using the `pg-display` class at 28px.
+- Middle:
+  - `<Badge>{format}</Badge>`
+  - Chapter title with the `pg-book-result-title` class
+  - The book title and author with the `pg-book-meta` class, formatted as "Cognition: Memory in Practice · R. Halloway"
+  - A row of matched topic tags: call `parseTopics(topics)` from mockData on the user's submitted text and render the first three results as `<Badge action>`.
+  - The `excerpt` in a quoted block: 15px, `var(--text-secondary)`, with a 2px left border in the chapter's `spineColor` and 12px left padding. Beneath it, the `pageRef` at 12px using `pg-muted`.
+- Right, using `pg-book-result-actions`:
+  - Read time, 15px: "12 min read"
+  - For chapter 1 only, a badge with `var(--success-50)` background and `var(--success-500)` text: "Free — no account"
+  - A button: for chapter 1, `<Button autoWidth>` labelled "Start reading"; for chapters 2 to 5, `<Button variant="outline" autoWidth>` labelled "Read chapter". Both navigate to `/read/` plus the chapter id.
 
-Do NOT add: filters, sort controls, a search bar, pagination, "related books", a sidebar, or any upsell banner.
+If `topics` is empty (the user opened `/map` directly), fall back to `TOPIC_PRESETS[0]` so the page never looks broken.
+
+Do NOT add: filters, sort controls, a search box, pagination, a "related books" section, a sidebar, or any promotional banner.
 ```
 
 ---
@@ -229,31 +130,36 @@ Do NOT add: filters, sort controls, a search bar, pagination, "related books", a
 ## 🟠 T3 — Reader + Research Assistant
 
 ```
-Build the ReadPage at route `/read/:id`. Look the chapter up from CHAPTERS by id.
+Build the ReadPage at `/read/:id`, using `getChapter(id)` from mockData.
+
+For the overall arrangement of a reading view with a side panel, you may use Mobbin as a structural reference — look at how reading apps place the reading column, the rail and the assistant panel. Take ONLY the layout and interaction structure from it. Every colour, font, radius, shadow and spacing value must come from this project's tokens and `pg-*` classes. Do not copy any visual style, illustration or brand element from a Mobbin reference.
 
 ## Layout
-Two columns. Left is the reading column, right is a 360px fixed panel, separated by a 1px `--border-decorative` divider. Page background `--canvas-paper`.
+Three columns, left to right:
+1. `<ReaderRail>` from PerlegoUI on the far left. Pass it these items: `[{id:'map',label:'Map'},{id:'notes',label:'Notes'},{id:'assistant',label:'Assistant'}]` with `activeId="map"`. Clicking "Map" navigates to `/map`.
+2. The reading column, max-width 640px, centred in the remaining space, 48px vertical padding, background `var(--canvas-paper)`.
+3. A fixed 360px assistant panel on the right, separated by a 1px `var(--border-decorative)` divider.
 
 ## Reading column
-Max-width 640px, centred in its column, 48px vertical padding.
-- A back link at the top: "← Back to your map", `--text-action`, navigates to `/map`.
-- Book title in `--font-display` italic 16px `--text-tertiary`.
-- Chapter title in `--font-display` 36px.
-- A meta line in 14px `--text-tertiary`: read time and pageRef.
-- The `body` paragraphs, rendered in `--font-body` at 18px with 1.75 line-height, 24px between paragraphs, `--text-primary`.
+- A `<TextLink>` at the top: "← Back to your map", navigating to `/map`.
+- The book title using `pg-book-meta`.
+- The chapter title using `pg-display` at 36px.
+- A `pg-muted` line at 14px showing read time and `pageRef`.
+- A `<SaveToBookshelfButton>` from PerlegoUI, aligned right on the same line as the chapter title.
+- The `body` paragraphs at 18px with 1.75 line-height, 24px apart, `var(--text-primary)`.
 
 ## Highlighting
-When the user selects text inside the reading column, show a small floating toolbar just above the selection: white background, 6px radius, `--shadow-6`, containing one button labelled "Highlight". Clicking it wraps the selected text in a span with a `--accent-yellow` background at 45% opacity, and increments a `highlightCount` in state. Keep highlightCount available to the whole page — the next task will use it.
+When the user selects text inside the reading column, show a small floating toolbar just above the selection: white background, 6px radius, `var(--shadow-6)`, containing one `<Button autoWidth>` labelled "Highlight". Clicking it wraps the selection in a span with `var(--accent-yellow)` at 45% opacity and increments `highlightCount` in SessionProvider.
 
-## Research Assistant panel (right)
-- Panel heading in `--font-heading` 16px: "Research assistant"
-- A one-line description in 13px `--text-tertiary`: "Answers grounded in this book, with citations."
-- Three suggested question buttons, stacked, each a left-aligned card with white background, 1px `--border-decorative` border, 6px radius, 14px text. Build the question text from the user's own submitted topics, for example: "Explain [topic] in simple terms", "How is [topic] tested in exams?", "Summarise [topic] in three points". Use the first three topics the user submitted.
-- Clicking a suggested question appends a chat exchange below: the question in a `--primary-50` bubble, then after a 600ms delay a pre-written answer in a white bubble with a 1px `--border-decorative` border. Write one short, plausible three-sentence answer about memory and encoding, and reuse it for any question.
-- Every answer ends with a citation line in 12px `--text-action`: "Cognition: Memory in Practice — Ch. 4, p. 112".
+## Assistant panel
+- A `pg-heading` at 16px: "Research assistant"
+- A `pg-muted` line at 13px: "Answers grounded in this book, with citations."
+- Three suggested question buttons stacked vertically, each a full-width `pg-card` with 14px left-aligned text. Build their labels from `parseTopics(topics)`: "Explain [topic 1] in simple terms", "How is [topic 2] tested in exams?", "Summarise [topic 3] in three points".
+- Clicking one appends an exchange below: the question in a bubble with `var(--primary-50)` background, then after 600ms the `ASSISTANT_ANSWER` string from mockData in a white bubble with a 1px `var(--border-decorative)` border.
+- Every answer ends with `ASSISTANT_CITATION` on its own line at 12px in `var(--text-action)`.
 - A disabled text input at the bottom with placeholder "Ask about this chapter…".
 
-Do NOT call any AI API. All answers are hard-coded strings.
+Do NOT call any AI API. The answer is the hard-coded string from mockData.
 ```
 
 ---
@@ -261,55 +167,55 @@ Do NOT call any AI API. All answers are hard-coded strings.
 ## 🟠 T4 — لحظات تبدیل
 
 ```
-Add two modals to the ReadPage. Both are entirely simulated with local state — no real authentication, no real payment, no backend.
+Add two modals to the ReadPage. Both are fully simulated with SessionProvider state — no real authentication, no real payment, no backend, no email sending.
+
+Both modals share the same shell: centred, max-width 460px, white background, 12px radius, `var(--shadow-6)`, over a 40% black overlay. Closing is always possible.
 
 ## Modal A — save prompt
-Trigger: the moment `highlightCount` reaches 3.
+Trigger: when `highlightCount` reaches 3, or when SaveToBookshelfButton is clicked. Only ever show it once — after that set `isSignedUp` and never show it again.
 Content:
-- Heading, `--font-heading` 22px: "Keep these for tomorrow?"
-- Body, `--text-secondary`: "You've highlighted 3 passages. Create an account to keep them, and your revision map, for your exam."
-- An email input and a password input, both styled with the project's input styling.
-- Primary button: "Save my highlights"
-- A quiet text link below it: "Not now"
-Clicking either closes the modal and returns the user to exactly where they were in the chapter. Do not scroll the page, do not navigate away, do not show a success screen.
+- A `pg-heading` at 22px: "Keep these for tomorrow?"
+- Body text: "You've highlighted 3 passages. Create an account to keep them, and your revision map, for your exam."
+- Two `<Field>` components from PerlegoUI: one for email, one for password.
+- A primary `<Button>`: "Save my highlights" — sets `isSignedUp` to true and closes.
+- A `<TextLink>` beneath it: "Not now" — closes.
+Either way, the user returns to exactly where they were in the chapter. Do not scroll the page, do not navigate, do not show a success screen or a confirmation toast.
 
 ## Modal B — paywall
-Trigger: opening any chapter where `isFree` is false.
+Trigger: opening any chapter whose `isFree` is false, while `isSubscribed` is false.
 Content:
-- Heading, `--font-heading` 22px: "Unlock the rest of your map"
-- A summary block with `--warning-50` background and 8px radius listing what is at stake, each on its own line: "3 highlights saved", "4 chapters left in your map", "66 minutes of reading".
-- Body, `--text-secondary`: "Perlego members read every chapter in full. Your map and your highlights stay exactly as they are."
-- A price line: "£12 per month" in `--font-heading` 20px, with "Cancel anytime" in 13px `--text-tertiary` beneath it.
-- Primary button: "Unlock and keep reading"
-- A quiet text link: "Back to my map"
-Clicking "Unlock and keep reading" sets an `isSubscribed` flag in state, closes the modal, and immediately renders the requested chapter's reading view.
+- A `pg-heading` at 22px: "Unlock the rest of your map"
+- A block with `var(--warning-50)` background and 8px radius, listing what is at stake, each on its own line: "3 highlights saved", "4 chapters left in your map", "66 minutes of reading".
+- Body text: "Perlego members read every chapter in full. Your map and your highlights stay exactly as they are."
+- A single `<PlanCard>` from PerlegoUI with title "Perlego membership", price "£12 per month", copy "Cancel anytime", and `selected` set to true. Show only this one plan — do not add a plan comparison or a second tier.
+- A primary `<Button>`: "Unlock and keep reading" — sets `isSubscribed` to true, closes the modal, and immediately renders the requested chapter's reading view.
+- A `<TextLink>`: "Back to my map".
 
-CRITICAL: after unlocking, the user goes straight into the chapter text. Do not show a welcome screen, a plan confirmation, a newsletter opt-in, a feature tour, an upsell, or any interstitial of any kind.
-
-Both modals: centred, max-width 460px, white background, 12px radius, `--shadow-6`, with a dimmed overlay behind them at 40% black. Closing is always possible.
+CRITICAL: after unlocking, the user lands directly in the chapter text. Do not show a welcome screen, a plan confirmation, a receipt, a newsletter opt-in, a feature tour, a survey, a rating prompt, or any interstitial of any kind.
 ```
 
 ---
 
 ## 🟡 T5 — پاس اصلاح
 
-اینجا پرامپت از پیش نوشته نداریم. بعد از T4 اسکرین‌شات‌ها را برایم بفرست، من همه‌ی اشکالات را در **یک** پرامپت اصلاحی جمع می‌کنم.
+پرامپت از پیش نوشته ندارد. بعد از T4 اسکرین‌شات‌ها را بفرست تا همه‌ی اشکالات را در **یک** پرامپت جمع کنم.
 
-**الگوی پرامپت اصلاحی (برای اینکه بدانی چه شکلی است):**
+**الگو:**
 ```
 Fix these, and change nothing else:
-1. On /map, the topic tags are using an accent colour. They must use --primary-50 background with --text-action text.
+1. On /map, the matched topic tags are not using <Badge action>. They must.
 2. On /read/c1, the reading column is 800px wide. It must be max-width 640px.
-3. The Start reading button has a 12px radius. All buttons must be 6px.
+3. The analysing state shows a large spinner. Remove it.
 ```
 
 ---
 
 ## ✅ چک نهایی قبل از ضبط دمو
 
-- [ ] مسیر کامل بدون خطا کار می‌کند: `/` → `/map` → `/read/c1` → هایلایت → مودال → فصل ۲ → paywall → مطالعه
-- [ ] هیچ‌جای محصول عدد «۱.۴ میلیون» نیست
+- [ ] مسیر کامل کار می‌کند: `/` → `/map` → `/read/c1` → هایلایت ×۳ → مودال save → فصل ۲ → paywall → مطالعه
+- [ ] هیچ‌جا عدد «۱.۴ میلیون» نیست
 - [ ] هیچ countdown timer ای نیست
-- [ ] بعد از پرداخت، هیچ صفحه‌ی میانی upsell نیست
+- [ ] بعد از unlock هیچ صفحه‌ی میانی نیست
 - [ ] همه‌ی دکمه‌های primary دقیقاً `#3327EC` هستند
-- [ ] عنوان کتاب‌ها با فونت سریف (Playfair) رندر می‌شوند
+- [ ] عنوان کتاب‌ها و هدینگ‌ها با فونت سریف (Playfair) رندر می‌شوند
+- [ ] هیچ رنگ accent روی هیچ دکمه‌ای نیست
