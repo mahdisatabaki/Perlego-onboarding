@@ -196,6 +196,20 @@ CRITICAL: after unlocking, the user lands directly in the chapter text. Do not s
 
 ---
 
+## 🟡 T2-fix — تگ‌های موضوع (بعد از T2، قبل از T3)
+
+> باگ واقعی پیدا شد: هر ۵ کارت دقیقاً یک تگ یکسان نشان می‌دادند. `mockData.ts` آپدیت شد و حالا هر فصل یک فیلد `matchedTopics` واقعی و متفاوت دارد. این پرامپت را بزن تا صفحه از آن استفاده کند.
+
+```
+I've pushed an update to `src/data/mockData.ts`: each Chapter object now has a `matchedTopics: string[]` field with topics genuinely relevant to that chapter.
+
+On the MapPage, stop deriving the topic tag badges from `parseTopics(topics)`. Instead, render `chapter.matchedTopics` as the `<Badge action>` tags for each chapter card. Show all of them (there are 1–2 per chapter, never more than 3).
+
+Change nothing else on the page.
+```
+
+---
+
 ## 🟡 T5 — پاس اصلاح
 
 پرامپت از پیش نوشته ندارد. بعد از T4 اسکرین‌شات‌ها را بفرست تا همه‌ی اشکالات را در **یک** پرامپت جمع کنم.
