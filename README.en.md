@@ -70,7 +70,8 @@ HACKATHON_PRINCIPLES.md      Constraints, activation-metric framework, decision 
 ICP1_SOLUTION_ANALYSIS.md    Why this ICP, three research loops, prioritised solution list
 BUILD_BACKLOG.md             Build plan, credit budget, live task status
 LOVABLE_PROMPTS.md           Every prompt used to build and fix the prototype, in order
-PRESENTATION.md              Plain-text mirror of the judge-facing solution brief
+PRESENTATION.md              Plain-text mirror of the judge-facing solution brief (English)
+PRESENTATION.fa.md           Plain-text mirror of the judge-facing solution brief (Persian)
 design-assets/               Perlego's hackathon design system + UI starter kit (source material)
 lovable-push/                Design tokens, components and mock content, pushed to the app repo
 ```
