@@ -1,93 +1,94 @@
-🇮🇷 [نسخه‌ی فارسی](./README.fa.md)
+🇬🇧 [English version](./README.en.md)
 
 # Panic to Page One
 
-**Perlego Customer Onboarding Hackathon — ICP 1: Exam in Two Days**
+**هکاتون Customer Onboarding پرلگو — ICP 1: امتحان تا دو روز دیگر**
 
-A redesigned onboarding journey for Perlego, built around one reader: a student with an exam in 48 hours who knows her topics but not which of 1.4 million books will actually help her. The goal was to get her from that uncertainty to a page of useful text in under five minutes — without touching Perlego's subscription model.
+### 🔗 **[پروتوتایپ زنده رو اینجا ببین ←](https://perlego-onboarding-redesign.lovable.app/)**
 
-**🔗 Live prototype:** [perlego-onboarding-redesign.lovable.app](https://perlego-onboarding-redesign.lovable.app/)
-**📄 Full reasoning, screen by screen:** [Panic to Page One — solution brief](https://claude.ai/code/artifact/86c0a450-16c7-4036-a68c-0e1c1c6134f7) (also mirrored as plain text in [`PRESENTATION.md`](./PRESENTATION.md))
+یک بازطراحی کامل از مسیر onboarding پرلگو، ساخته‌شده حول یک کاربر مشخص: دانشجویی که ۴۸ ساعت تا امتحانش مونده، موضوعاتش رو می‌دونه ولی نمی‌دونه کدوم‌یکی از ۱.۴ میلیون کتاب پرلگو واقعاً به دردش می‌خوره. هدف این بود که این کاربر رو در **کمتر از ۵ دقیقه** از این سردرگمی به یک صفحه‌ی متن مفید برسونیم — بدون اینکه به مدل subscription پرلگو دست بزنیم.
+
+**📄 استدلال کامل، صفحه‌به‌صفحه:** [سند Panic to Page One](https://claude.ai/code/artifact/86c0a450-16c7-4036-a68c-0e1c1c6134f7) (نسخه‌ی متنی‌اش هم در [`PRESENTATION.md`](./PRESENTATION.md) هست)
 
 ---
 
-## The problem
+## مسئله
 
-Perlego's existing front door is built for browsing: search, explore, compare, subscribe. That works for a curious reader. It does not work for someone with an exam in two days — she doesn't want to explore a library, she wants proof, fast, that this product has something worth her next five minutes.
+مسیر ورودی فعلی پرلگو برای **مرور** طراحی شده: جستجو کن، کاوش کن، مقایسه کن، subscribe کن. این برای یک کاربر کنجکاو خوب جواب می‌ده. اما برای کسی که ۲ روز تا امتحانش مونده کار نمی‌کنه — او نمی‌خواد کتابخونه رو کاوش کنه، می‌خواد سریع مطمئن بشه این محصول چیزی داره که ارزش ۵ دقیقه‌ی بعدیش رو داره.
 
-The brief allowed us to rebuild the onboarding journey from scratch — keep, remove or reorder any part of it — as long as the result stayed plausible inside Perlego's actual subscription business (no freemium, but previewing value before sign-up or payment is fair game).
+طبق brief هکاتون، آزاد بودیم کل مسیر onboarding رو از صفر بسازیم — هر بخشش رو نگه داریم، حذف کنیم یا جابجا کنیم — به شرطی که نتیجه در چارچوب کسب‌وکار واقعی پرلگو موجه بمونه (بدون freemium، اما نمایش ارزش قبل از signup یا پرداخت مجاز بود).
 
-## The approach
+## رویکرد ما
 
-We picked **ICP 1 — "Exam in Two Days"** over the other two candidate personas because it gives the sharpest, most demonstrable activation metric (useful material on screen, reading started, in under five minutes), the clearest tension to resolve between a free preview and a paid product, and the smallest surface area to build well inside a hackathon's time and credit budget — while still forcing a genuine rebuild of where onboarding begins.
+**ICP 1 — «امتحان تا دو روز دیگر»** رو نسبت به دو ICP دیگه انتخاب کردیم، چون تیزترین و قابل‌نمایش‌ترین activation metric رو می‌ده (محتوای مفید روی صفحه، شروع مطالعه، زیر ۵ دقیقه)، واضح‌ترین تنش بین preview رایگان و محصول پولی رو داره برای حل‌کردن، و کوچک‌ترین حجم کار برای ساخت درست در بودجه‌ی زمانی و credit یک هکاتون — درحالی‌که همچنان مجبورمون می‌کنه واقعاً نقطه‌ی شروع onboarding رو بازتعریف کنیم.
 
-Three insights shaped everything downstream:
+سه بینش، کل مسیر بعدی رو شکل داد:
 
-1. **The real risk is time, not money.** She isn't weighing £12/month — she's weighing whether the next five minutes here are five minutes she can afford to lose.
-2. **Her unit of value is the chapter, not the book.** Perlego's catalogue is organised in ~400-page units; her revision window is 48 hours.
-3. **Scale is a liability under this pressure.** "1.4 million titles" reassures on every other path through Perlego and creates anxiety on this one — so it never appears here.
+1. **ریسک واقعی، زمانه نه پول.** او نگران ۱۲ پوند در ماه نیست — نگرانه که این ۵ دقیقه‌ی بعدی روی این سایت رو از دست بده.
+2. **واحد ارزش برای او، فصل است نه کتاب.** کاتالوگ پرلگو در واحدهای ~۴۰۰ صفحه‌ای سازمان‌دهی شده؛ پنجره‌ی مرورش ۴۸ ساعته.
+3. **مقیاس، زیر این فشار یک تهدیده.** «۱.۴ میلیون عنوان» در هر مسیر دیگه‌ی پرلگو اطمینان‌بخشه، ولی در این مسیر اضطراب می‌سازه — پس اینجا اصلاً نمایش داده نمی‌شه.
 
-## The solution, in six screens
+## راه‌حل، در شش صفحه
 
-| # | Screen | The move |
+| # | صفحه | تصمیم اصلی |
 |---|---|---|
-| 1 | **Intent** | "What are you revising?" — paste your topics, no search box, no account |
-| 2 | **Revision map** | Five ranked chapters, each with a real quoted excerpt as proof, before she commits to opening one |
-| 3 | **First chapter, free** | Opens in full, no account required — the preview the brief explicitly allows |
-| 4 | **Research Assistant** | Suggested questions pre-written from her own topics, answers cite chapter and page |
-| 5 | **Save prompt** | Appears once, after 3 highlights — framed around protecting effort already made |
-| 6 | **Paywall** | Loss-framed (what she already has, not a features table), single plan, and unlocking drops her straight back into the chapter — no post-payment upsell screens |
+| ۱ | **Intent** | «What are you revising?» — موضوعاتت رو paste کن، بدون سرچ‌باکس، بدون حساب کاربری |
+| ۲ | **Revision map** | پنج فصل مرتب‌شده، هرکدوم با یک نقل‌قول واقعی به‌عنوان اثبات، قبل از اینکه کاربر متعهد به بازکردنش بشه |
+| ۳ | **فصل اول، رایگان** | کامل باز می‌شه، بدون نیاز به حساب — دقیقاً همون preview ای که brief مجاز دونسته |
+| ۴ | **Research Assistant** | سوالات پیشنهادی از موضوعات خودِ کاربر ساخته شده؛ جواب‌ها با ارجاع فصل و صفحه |
+| ۵ | **Save prompt** | فقط یک‌بار، بعد از ۳ هایلایت ظاهر می‌شه — با فریم «محافظت از تلاشی که کرده» |
+| ۶ | **Paywall** | با فریم loss (چیزی که از قبل داره، نه یک جدول فیچر)، یک پلن، و بعد از unlock مستقیم برمی‌گرده به همون فصل — بدون هیچ صفحه‌ی upsell |
 
-Every decision above is backed by a named UX/psychology principle and cross-checked against published case studies (Wall Street Journal, HelloFresh, Apple Fitness+, Strava, YNAB, Gmail — via Built for Mars). The full reasoning, including what we deliberately removed and why, is in the [solution brief](https://claude.ai/code/artifact/86c0a450-16c7-4036-a68c-0e1c1c6134f7).
+هر تصمیم بالا پشتش یک اصل UX/روان‌شناسی مشخص داره و با case study های واقعی چک شده (Wall Street Journal، HelloFresh، Apple Fitness+، Strava، YNAB، Gmail — از طریق Built for Mars). استدلال کامل، شامل چیزهایی که عمداً حذف کردیم و چرا، در [سند راه‌حل](https://claude.ai/code/artifact/86c0a450-16c7-4036-a68c-0e1c1c6134f7) هست.
 
-### Try it yourself
+### خودت امتحانش کن
 
-1. Open the [live prototype](https://perlego-onboarding-redesign.lovable.app/) and click one of the three topic chips (or paste your own).
-2. On the revision map, read the quoted excerpt on chapter 1, then open it — no account needed.
-3. Select some text and highlight it three times to see the save prompt.
-4. Try opening chapter 2 to see the paywall, then unlock it.
+۱. [پروتوتایپ زنده](https://perlego-onboarding-redesign.lovable.app/) رو باز کن و روی یکی از سه چیپ موضوع بزن (یا موضوع خودت رو بنویس).
+۲. توی revision map، نقل‌قول فصل ۱ رو بخون، بعد بازش کن — بدون نیاز به حساب.
+۳. یک تکه متن رو انتخاب کن و ۳ بار هایلایت بزن تا مودال save رو ببینی.
+۴. سعی کن فصل ۲ رو باز کنی تا paywall رو ببینی، بعد unlock کن.
 
 ---
 
-## How this was built
+## این پروژه چطور ساخته شد
 
-This repo is the planning trail, not the app itself — the actual prototype lives in a separate repo connected to [Lovable](https://lovable.dev), and this repo documents the reasoning and instructions that produced it.
+این ریپو مسیر برنامه‌ریزی است، نه خودِ اپ — پروتوتایپ واقعی در یک ریپوی جدا که به [Lovable](https://lovable.dev) وصله زندگی می‌کنه، و این ریپو استدلال و دستورالعمل‌هایی که اون رو ساختن رو مستند می‌کنه.
 
-The process, in order:
+فرآیند، به ترتیب:
 
-1. **Read the brief, locked the constraints and principles** → [`HACKATHON_PRINCIPLES.md`](./HACKATHON_PRINCIPLES.md)
-2. **Chose the ICP and ran a three-loop critique of the solution space**, grounded in Built for Mars UX research → [`ICP1_SOLUTION_ANALYSIS.md`](./ICP1_SOLUTION_ANALYSIS.md)
-3. **Turned the solution into a credit-conscious build backlog** for Lovable → [`BUILD_BACKLOG.md`](./BUILD_BACKLOG.md)
-4. **Wrote dense, self-contained prompts** for each build task and every bug fix found while testing → [`LOVABLE_PROMPTS.md`](./LOVABLE_PROMPTS.md)
-5. **Pushed the design system and content via git instead of prompts**, so styling and copy cost zero generation credits → [`lovable-push/`](./lovable-push)
-6. **Built screen by screen in Lovable, testing after every step** and writing a fix prompt the moment a real bug or copy problem showed up — a recurring save-modal bug, a fabricated "exam in 2 days" claim the product had never actually been told, an inconsistent em dash, a save-modal that lied about what triggered it. Nothing shipped without being clicked through first.
-7. **Wrote up the full reasoning as a judge-facing brief**, using Perlego's own design tokens for the document itself.
+۱. **خوندن brief، قفل‌کردن محدودیت‌ها و اصول** → [`HACKATHON_PRINCIPLES.md`](./HACKATHON_PRINCIPLES.md)
+۲. **انتخاب ICP و اجرای سه لوپ نقد روی فضای راه‌حل**، بر پایه‌ی تحقیقات UX از Built for Mars → [`ICP1_SOLUTION_ANALYSIS.md`](./ICP1_SOLUTION_ANALYSIS.md)
+۳. **تبدیل راه‌حل به یک بک‌لاگ ساخت با توجه به مصرف credit** برای Lovable → [`BUILD_BACKLOG.md`](./BUILD_BACKLOG.md)
+۴. **نوشتن پرامپت‌های متراکم و خودکفا** برای هر تسک ساخت و هر باگی که حین تست پیدا شد → [`LOVABLE_PROMPTS.md`](./LOVABLE_PROMPTS.md)
+۵. **push کردن design system و محتوا از طریق git به‌جای پرامپت**، تا استایل و متن صفر credit مصرف کنه → [`lovable-push/`](./lovable-push)
+۶. **ساخت صفحه‌به‌صفحه در Lovable، تست بعد از هر قدم** و نوشتن پرامپت اصلاحی همون لحظه‌ای که یک باگ یا مشکل متنیِ واقعی پیدا می‌شد — مودالی که تکراری ظاهر می‌شد، ادعای ساختگی «امتحان تا ۲ روز دیگر» که محصول هیچ‌وقت ازش نپرسیده بود، خط‌تیره‌ی ناسازگار، مودالی که درباره‌ی چیزی که واقعاً اتفاق نیفتاده بود دروغ می‌گفت. هیچی بدون کلیک‌کردن و تست واقعی تحویل داده نشد.
+۷. **نوشتن استدلال کامل به‌شکل یک بریف برای داوران**، با استفاده از همون design tokens خودِ پرلگو برای خودِ این سند.
 
-## Repository structure
+## ساختار ریپو
 
 ```
-HACKATHON_PRINCIPLES.md      Constraints, activation-metric framework, decision principles
-ICP1_SOLUTION_ANALYSIS.md    Why this ICP, three research loops, prioritised solution list
-BUILD_BACKLOG.md             Build plan, credit budget, live task status
-LOVABLE_PROMPTS.md           Every prompt used to build and fix the prototype, in order
-PRESENTATION.md              Plain-text mirror of the judge-facing solution brief
-design-assets/               Perlego's hackathon design system + UI starter kit (source material)
-lovable-push/                Design tokens, components and mock content, pushed to the app repo
+HACKATHON_PRINCIPLES.md      محدودیت‌ها، چارچوب activation metric، اصول تصمیم‌گیری
+ICP1_SOLUTION_ANALYSIS.md    چرایی این ICP، سه لوپ تحقیق، لیست راه‌حل‌های اولویت‌بندی‌شده
+BUILD_BACKLOG.md             پلن ساخت، بودجه‌ی credit، وضعیت زنده‌ی تسک‌ها
+LOVABLE_PROMPTS.md           تمام پرامپت‌های استفاده‌شده برای ساخت و رفع باگ، به ترتیب
+PRESENTATION.md              نسخه‌ی متنی بریف ارائه به داوران
+design-assets/               design system هکاتون پرلگو + UI starter kit (منبع اصلی)
+lovable-push/                design tokens، کامپوننت‌ها و محتوای mock، push‌شده به ریپوی اپ
 ```
 
-## Built with
+## ساخته‌شده با
 
-- **Prototype:** [Lovable](https://lovable.dev) (TanStack Start + React), fully simulated — no backend, auth, payments or live AI calls
-- **Design system:** Perlego's own hackathon tokens (brand indigo `#3327EC`, Playfair Display / Manrope / Inter, warm neutrals, 4px grid)
-- **UX research grounding:** [Built for Mars](https://builtformars.com)
+- **پروتوتایپ:** [Lovable](https://lovable.dev) (TanStack Start + React)، کاملاً شبیه‌سازی‌شده — بدون بک‌اند، auth، payment یا فراخوانی واقعی AI
+- **Design system:** توکن‌های خودِ هکاتون پرلگو (ایندیگو برند `#3327EC`، فونت‌های Playfair Display / Manrope / Inter، خاکستری‌های گرم، گرید ۴px)
+- **پایه‌ی تحقیقات UX:** [Built for Mars](https://builtformars.com)
 
-## Judging criteria, at a glance
+## معیارهای داوری، نگاه اجمالی
 
-| Criterion | Where it shows up |
+| معیار | کجا پاسخ داده شده |
 |---|---|
-| Business context, design system, branding | Built on Perlego's real tokens and components; no freemium invented |
-| Novel UX and interaction | Chapter-level revision map; loss-framed paywall with no post-purchase upsell |
-| Creativity and originality | Reframing "1.4 million books" as a liability, not a feature, for this one reader |
-| Implementation quality | Fully clickable prototype — real reading content, working highlight, save and paywall states |
-| Quality of product decisions and interaction details | [Solution brief](https://claude.ai/code/artifact/86c0a450-16c7-4036-a68c-0e1c1c6134f7) — every screen's reasoning traced to a principle and a constraint |
-| Demo | Two-minute recorded walkthrough (separate submission) |
+| هم‌راستایی با business context، design system و branding | ساخته‌شده روی توکن‌ها و کامپوننت‌های واقعی پرلگو؛ هیچ freemium ای اختراع نشده |
+| Novel UX و تعامل | Revision map در سطح فصل؛ paywall با فریم loss و بدون upsell بعد از پرداخت |
+| خلاقیت و نوآوری | بازقاب‌بندی «۱.۴ میلیون کتاب» از یک ویژگی به یک تهدید، برای همین یک کاربر |
+| کیفیت پیاده‌سازی | پروتوتایپ کاملاً کلیک‌پذیر — متن مطالعه‌ی واقعی، هایلایت، save و paywall کاملاً کاربردی |
+| کیفیت تصمیمات محصولی و جزئیات تعامل | [سند راه‌حل](https://claude.ai/code/artifact/86c0a450-16c7-4036-a68c-0e1c1c6134f7) — استدلال هر صفحه ردیابی‌شده به یک اصل و یک محدودیت مشخص |
+| دمو | ضبط ۲ دقیقه‌ای (ارسال جداگانه) |
