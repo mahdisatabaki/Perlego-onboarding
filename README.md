@@ -1,3 +1,5 @@
+🇮🇷 [نسخه‌ی فارسی](./README.fa.md)
+
 # Panic to Page One
 
 **Perlego Customer Onboarding Hackathon — ICP 1: Exam in Two Days**
